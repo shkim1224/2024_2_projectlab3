@@ -1,13 +1,15 @@
+// 본 프로그램은 arduino nano rp2040 connect에 부착된 가속도 센서값을 json 형식으로 원격의 rapa에 설치된
+// node-red의 http-in 을 통해 전송하는 프로그램임
 #include <WiFiNINA.h>
 #include <ArduinoHttpClient.h>
 #include <Arduino_LSM6DSOX.h>
 
 // WiFi 설정
-const char* ssid = "iptime_shkim_24";
-const char* password = "ksh89377";
+const char* ssid = " ";  // 자신의 wifi 정보
+const char* password = " ";  // wifi 비번
 
 // 서버 설정
-const char* serverAddress = "192.168.0.47";
+const char* serverAddress = "192.168.0.47";  // 라즈베리파이 wifi ip 주소
 int port = 1880; // Node-RED의 기본 포트
 
 WiFiClient wifi;
