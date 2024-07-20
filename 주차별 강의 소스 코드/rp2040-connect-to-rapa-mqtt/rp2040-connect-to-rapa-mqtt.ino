@@ -1,10 +1,11 @@
+// 본 프로그램은 arduino nano rp2040 connect에 부착된 가속도 센서값을 원격의 라파에 mqtt 통신을 사용하여 topic을 전송하는 프로그램
 #include <WiFiNINA.h>
 #include <ArduinoMqttClient.h>
 #include <Arduino_LSM6DSOX.h>
 
 // WiFi 설정
-const char* ssid = "iptime_shkim_24";
-const char* password = "ksh89377";
+const char* ssid = " ";
+const char* password = " ";
 
 // MQTT 설정
 const char* broker = "192.168.0.47";
