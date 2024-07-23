@@ -7,11 +7,13 @@ const char* ssid = "iptime_shkim_24";
 const char* password = "ksh89377";
 
 // 서버 설정
-const char* serverAddress = "192.168.0.47";  // Node-RED가 실행 중인 서버의 IP 주소
+const char* serverAddress = "192.168.0.58";  // Node-RED가 실행 중인 서버의 IP 주소
 int port = 1880;  // Node-RED의 HTTP-in 노드가 사용하는 포트
 
 WiFiClient wifiClient;
-HttpClient client = HttpClient(wifiClient, serverAddress, port);
+//HttpClient client = HttpClient(wifiClient, serverAddress, port);
+HttpClient client(wifiClient, serverAddress, port);
+
 
 void setup() {
   Serial.begin(9600);
@@ -43,7 +45,7 @@ void loop() {
     String json = "{\"x\":" + String(x) + ", \"time\":" + String(currentTime) + "}";
     // HTTP POST 요청 전송
     client.beginRequest();
-    client.post("/test");  // Node-RED의 HTTP-in 노드의 엔드포인트
+    client.post("/temp");  // Node-RED의 HTTP-in 노드의 엔드포인트
     client.sendHeader("Content-Type", "application/json");
     client.sendHeader("Content-Length", json.length());
     client.beginBody();
